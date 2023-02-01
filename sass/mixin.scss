@@ -1,0 +1,219 @@
+@mixin neo($radius, $eje){
+    border-radius: $radius;
+    background-color: #e0e0e0;
+    box-shadow: $eje $eje ($eje*2) #bebebe,
+                $eje $eje ($eje*2) #ffffff;
+}
+
+
+/* Carrusel  */
+.carrousel {
+	width: 100%;
+	// max-width: 120em;
+	padding: 1em 0;
+	overflow: hidden;
+	@include neo(10px, 1em);
+	min-width: 320px;
+	margin: 1em 0;
+	
+	
+}
+
+.carrousel .grande{
+	width: 200%;
+	display: flex;
+	flex-flow:row nowrap;
+	align-items: center;
+	@include neo(10px, 2em);
+	padding: 1em 0;
+	background-color: #d8d8d8;
+	
+	transition: all .5s ease;
+	transform: translateX(0%);
+	
+}
+
+.carrousel .img-grupos{
+	width: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+	
+	// width: calc(100% / 2 - 2em);
+	justify-content: space-around;
+}
+
+.carrousel .img{
+	width: calc(100% / 8 - 2em);
+	min-height: 10vh;
+	@include neo(10px, 1em);
+	// padding: 0 1em;
+	
+}
+
+
+// GRUPOS GRANDES IMAGEN
+.img-grupos-grandes{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 90;
+	background-color: rgba(22, 16, 16, 0.9);
+	background-size: 100%;
+	display: none;
+}
+
+// Ocultar todas las imagenes hasta activarlas
+.img-grupos-grandes .img-grande{
+	display: none;
+}
+
+// Contenedor para boton de cerrar imagen y de imagenes
+.img-grupos-grandes .div-imagenes{
+	width: 100%;
+	height: 80vh;
+	margin: 10vh auto;
+	// border: solid 5px blue;
+}
+
+.img-grupos-grandes .activa {
+	display: flex;
+	// border: #22A39F solid 5px;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	object-fit: contain;
+	min-width: 360px;
+	z-index: 100;
+}
+
+// diseño de boton para cerrar imagen
+.img-grupos-grandes .boton-cerrar_img{
+	position: absolute;
+	top: 0;
+	right: 1rem;
+	cursor: pointer;
+}
+
+// boton
+.img-grupos-grandes .fa-solid, .fa-xmark{
+	// padding: 1rem 1rem;
+	font-size: 40px;
+}
+
+.img-grupos-grandes .boton-derecha{
+	position: absolute;
+	top: 47%;
+	right: 1rem;
+	cursor: pointer;
+}
+
+.img-grupos-grandes .fa-solid, .fa-angle-right{
+	padding: 50% 0;
+	font-size: 40px;
+}
+
+.img-grupos-grandes .boton-izquierda{
+	position: absolute;
+	top: 47%;
+	left: 1rem;
+	cursor: pointer;
+}
+
+.img-grupos-grandes .fa-solid, .fa-angle-left{
+	padding: 50% 0;
+	font-size: 40px;
+}
+
+#cerrar{
+	display: none;
+}
+
+#btnDerecha{
+	display: none;
+}
+
+#btnIzquierda{
+	display: none;
+}
+// Diseño de imagen activa
+
+
+.carrousel .img:hover{
+	transform: scale(1.02);
+	cursor: pointer;
+}
+
+.carrousel .puntos{
+	width: 100%;
+	padding: .4em;
+	margin: 1em 0 0;
+	display: flex;
+	flex-flow:row nowrap;
+	justify-content: center;
+	align-items: center;
+	transition: all .5s ease;
+}
+
+.carrousel .punto, .mob {
+	width: 2em;
+	height: 2em;
+	margin: .2em;
+	list-style: none;
+	@include neo(50%, 1em);
+	background-color: #bebbbb;
+}
+
+.carrousel .mob{
+	display:none;
+}
+
+.carrousel .punto:hover{
+	cursor: pointer;
+}
+
+.carrousel .puntos .activo{
+	background-color: #22A39F;
+}
+
+
+// Resolucion de Celular
+@media (max-width: 825px){
+
+	.carrousel{
+		padding: .5em 0;
+	}
+
+	.carrousel .grande{
+		width: 800%;
+		padding: 1em 0;
+	}
+
+	.carrousel .img-grupos{
+	width: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	}
+
+	.carrousel .img-grupos img{
+	// width: calc(100% / 8 - 2em);
+	min-height: 10vh;
+	}
+
+	.carrousel .puntos{
+		margin: .5em 0 0 0; 
+	}
+
+	.carrousel .punto{
+		width: 1em;
+		height: 1em;
+	}
+
+	.carrousel .mob{
+		display:block;
+	}
+
+}
+
