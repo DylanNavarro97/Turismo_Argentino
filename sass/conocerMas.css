@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Nunito:wght@400;800&family=Open+Sans:wght@300;700;800&family=Sen&family=Trocchi&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+}
+
+body {
+  background-color: #F3EFE0;
+}
+
+/* Header para nav y links */
+header {
+  background-color: #22A39F;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 85px;
+  padding: 5px 5%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #22A39F;
+  background-image: url(../imagenes/opa.jpg);
+  background-blend-mode: soft-light;
+  background-size: 150%;
+}
+
+.header .logo {
+  cursor: pointer;
+  margin-right: auto;
+}
+
+.header .logo img {
+  height: 70px;
+  width: auto;
+  transition: all 0.3s;
+}
+
+.header .logo img:hover {
+  transform: scale(1.1);
+}
+
+.header .nav-links {
+  list-style: none;
+}
+
+.header .nav-links li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.header .nav-links li:hover {
+  transform: scale(1.1);
+}
+
+.header .nav-links a {
+  font-size: 700;
+  color: #F3EFE0;
+  text-decoration: none;
+}
+
+.header .nav-links li a:hover {
+  color: #BFEAF5;
+}
+
+.header .btn button {
+  font-weight: 700;
+  color: #F3EFE0;
+  padding: 9px 25px;
+  background: #222222;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover {
+  background-color: #434242;
+  color: #22A39F;
+  transform: scale(1.1);
+}
+
+#check {
+  display: none;
+}
+
+#checkbtn {
+  display: none;
+}
+
+/* Articulos sobre conocer mas */
+.contenedor-art-mas {
+  display: flex;
+  background-image: url(../imagenes/Hoteles/jujuy.jpg);
+  flex-wrap: wrap;
+}
+
+.in-flex {
+  flex: 1;
+  min-width: 300px;
+}
+
+.in-flex:first-child {
+  flex: 2;
+  padding: 25px;
+  background-color: rgb(243, 239, 224);
+  background-blend-mode: soft-light;
+  margin: 20px;
+}
+
+.in-flex div {
+  padding: 25px;
+  background-color: #F3EFE0;
+  margin: 20px;
+}
+
+@media (max-width: 904px) {
+  .header .nav-links li {
+    padding: 0 10px;
+  }
+  .header .btn button {
+    font-weight: 650;
+    padding: 9px 15px;
+    transition: all 0.3s ease 0s;
+  }
+  .header .btn button:hover {
+    transform: scale(1.1);
+  }
+}
+@media (max-width: 825px) {
+  #checkbtn {
+    display: block;
+    float: right;
+    background-color: #222222;
+    color: #F3EFE0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease 0s;
+  }
+  /*/Boton de contacto /*/
+  .btn {
+    display: none;
+  }
+  header {
+    min-width: 360px;
+    justify-content: center;
+    z-index: 5;
+  }
+  /* Barra escondida */
+  .header nav ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #222222;
+    top: 85px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  .header nav ul li {
+    margin: 50px;
+    line-height: 30px;
+    display: block;
+  }
+  .header .nav-links li {
+    display: block;
+    padding: 0;
+  }
+  .header nav ul li a {
+    font-size: 20px;
+  }
+  #check:checked ~ #checkbtn {
+    transform: scale(1.1);
+  }
+  #check:checked ~ nav ul {
+    left: 0;
+  }
+}/*# sourceMappingURL=conocerMas.css.map */

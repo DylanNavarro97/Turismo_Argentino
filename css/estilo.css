@@ -302,11 +302,6 @@ header{
 
 
 
-
-
-
-
-
 @media (max-width: 904px) {
 	.header .nav-links li {
 		padding: 0 10px;
@@ -351,6 +346,7 @@ header{
 header{
 	min-width: 360px;
 	justify-content: center;
+	z-index: 5;
 }
 
 /* Barra escondida */
@@ -363,7 +359,7 @@ header{
 	left: -100%;
 	text-align: center;
 	transition: all .5s;
-	z-index: 5;
+	
 }
 
 
@@ -383,13 +379,13 @@ header{
 	font-size: 20px;
 }
 
-#check:checked ~ article{
+/* #check:checked ~ article{
 	right: -100%;
-}
+} */
 
-#check:checked ~ nav ul{
+/* #check:checked ~ nav ul{
 	left: 0 ;
-}
+} */
 
 #check:checked ~ #checkbtn{
 	transform: scale(1.1);

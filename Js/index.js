@@ -14,14 +14,30 @@ window.sr = ScrollReveal();
 
 
 
-// Scroll animado ejemplo
-//     const scrollAnimado = (elemento) =>{
-//         const destino = document.querySelector(elemento);
-//         destino.scrollIntoView({
-//             behavior: 'smooth'
-//         })
-//     }
+const navLink = document.querySelectorAll('.nav-link')
+const check = document.getElementById('check')
+let modificarUlRight = document.querySelector('.nav-links')
+const header = document.querySelector('.header')
+
+header.addEventListener('click',(e)=>{
+    let targetClass = e.target.classList
+    console.log(targetClass[0])
+
+
+
+    if (check.checked == true){
+        // console.log("deu1")
+        modificarUlRight.style.left='0'
+    } else if (check.checked == false){
+        modificarUlRight.style.left='-100%'
+    }
+
+    if (e.target.classList[0] == 'inicio'){
+        modificarUlRight.style.left='-100%'
+        check.checked = false
+    }
     
+})
 
 const elSubMenu = document.getElementById('sub-dibujo-links-id')
 var animadoBottom = document.querySelectorAll('#contCheck')
@@ -62,6 +78,7 @@ var gastronomiaArticulo =document.getElementById('art-gastronomia')
 
 // Efecto de Scroll al articulo
 var animado = document.querySelectorAll('#contenedor-main-articulos')
+const grande = document.querySelectorAll('.grande')
 function mostrarScrollAArticulo(){
     // let scrollTop = document.documentElement.scrollTop;
     for (var i=0; i < animado.length; i++) {
@@ -77,62 +94,75 @@ function mostrarScrollAArticulo(){
     }
 }
 
-
+const punto = document.querySelectorAll('.punto')
 // Aplicando el efecto de scroll al articulo
 contenedorDeChecks.addEventListener('click', function(e){
-    if (e.target.id == 'lugares'){
+    if (e.target.id == 'lugares' || e.target.id == 'lugares-sub'){
         // console.log("oa");
         hotelesArticulo.style.display='none'
         lugaresArticulo.style.display='block'
         gastronomiaArticulo.style.display='none'
         mostrarScrollAArticulo()
+        punto.forEach((cadapunto,i)=>{
+            punto[i].classList.remove('activo')
+        }) 
+        punto[0].classList.add('activo')
+        grande.forEach((cadaGrande,i)=>{
+            grande[i].style.transform = `translateX(0%)`
+            })
         
 
-    } else if (e.target.id == 'hoteles'){
+    } else if (e.target.id == 'hoteles' || e.target.id == 'hoteles-sub'){
         // console.log("hotelespa");
         hotelesArticulo.style.display='block'
         lugaresArticulo.style.display='none'
         gastronomiaArticulo.style.display='none'
         mostrarScrollAArticulo();
+        punto.forEach((cadapunto,i)=>{
+            punto[i].classList.remove('activo')
+        }) 
+        punto[8].classList.add('activo')
+        grande.forEach((cadaGrande,i)=>{
+            grande[i].style.transform = `translateX(0%)`
+            })
+        
 
-    } else if (e.target.id == 'gastronomia'){
+    } else if (e.target.id == 'gastronomia' || e.target.id == 'gastronomia-sub' ){
         // console.log("gastro");
         hotelesArticulo.style.display='none'
         lugaresArticulo.style.display='none'
         gastronomiaArticulo.style.display='block'
         mostrarScrollAArticulo();
-
-    } else if (e.target.id == 'lugares-sub'){
-        hotelesArticulo.style.display='none'
-        lugaresArticulo.style.display='block'
-        gastronomiaArticulo.style.display='none'
-        mostrarScrollAArticulo()
-    } else if (e.target.id == 'hoteles-sub'){
-        hotelesArticulo.style.display='block'
-        lugaresArticulo.style.display='none'
-        gastronomiaArticulo.style.display='none'
-        mostrarScrollAArticulo()
-    } else if (e.target.id == 'gastronomia-sub'){
-        hotelesArticulo.style.display='none'
-        lugaresArticulo.style.display='none'
-        gastronomiaArticulo.style.display='block'
-        mostrarScrollAArticulo()
-    }  
+        punto.forEach((cadapunto,i)=>{
+            punto[i].classList.remove('activo')
+        }) 
+        punto[16].classList.add('activo')
+        grande.forEach((cadaGrande,i)=>{
+            grande[i].style.transform = `translateX(0%)`
+            })
+        
+    } 
+    //else if (e.target.id == 'lugares-sub'){
+    //     hotelesArticulo.style.display='none'
+    //     lugaresArticulo.style.display='block'
+    //     gastronomiaArticulo.style.display='none'
+    //     mostrarScrollAArticulo()
+    // } else if (e.target.id == 'hoteles-sub'){
+    //     hotelesArticulo.style.display='block'
+    //     lugaresArticulo.style.display='none'
+    //     gastronomiaArticulo.style.display='none'
+    //     mostrarScrollAArticulo()
+    // } else if (e.target.id == 'gastronomia-sub'){
+    //     hotelesArticulo.style.display='none'
+    //     lugaresArticulo.style.display='none'
+    //     gastronomiaArticulo.style.display='block'
+    //     mostrarScrollAArticulo()
+    // }  
     
 })
 
 
 // carrusel 
-const grande = document.querySelector('.grande')
-const punto = document.querySelectorAll('.punto')
-
-//Cuando hago CLICK en punto
-    //Saber la posicion de ese punto
-     //Aplicar transform Translate en eje X al grande
-    //QUITAR la clase activo de TODOS los puntos
-    //AÑADIR la clase activo al punto que hemos hecho click    
-    
-    //Recorred todos los puntos
 punto.forEach( (cadaPunto , i)=> {
     //Asignamos un click a cadaPunto
     punto[i].addEventListener('click',()=>{
@@ -156,23 +186,35 @@ punto.forEach( (cadaPunto , i)=> {
         } else {
             var operacion = posicion * -50
         }
+        // console.log(posicion)
     
+        if (i>=8 && windowWidth <= 825){
+            let posicion = i - 8
+            var operacion = posicion * -12.5
+        }else if (i>=8){
+            let posicion = i - 8
+            var operacion = posicion * -50
+        }
+
+        if (i>=16 && windowWidth <= 825){
+            let posicion = i - 16
+            var operacion = posicion * -12.5
+        }else if (i>=16){
+            let posicion = i - 16
+            var operacion = posicion * -50
+        }
+    
+
         
-        // console.log(contieneActivo)
-
-        //Cuando la posicion es 0, el transform es 0
-        //Cuando la posicion es 1, el transform es -50%
-        //Calculando el espacio que debe desplazarse el grande
-        // var operacion = posicion *-50
-        //Movemos el grande
-        grande.style.transform = `translateX(${ operacion }%)`
-
+        grande.forEach((cadaGrande,i)=>{
+        grande[i].style.transform = `translateX(${ operacion }%)`
+        })
     })
 })
 
 const grupoImagen = document.querySelectorAll('.img')
 const grupoImagenGrande = document.querySelectorAll('.img-grande')
-const contenedorImagenGrande = document.querySelector('.img-grupos-grandes')
+const contenedorImagenGrande = document.querySelectorAll('.img-grupos-grandes')
 
 
 // Darle a Activo a una IMG grande
@@ -185,32 +227,46 @@ const contenedorImagenGrande = document.querySelector('.img-grupos-grandes')
         // ClasesDeImagen = grupoImagen[i].classList[1]
         // // console.log(ClasesDeImagen)
         grupoImagenGrande.forEach((imgGrande,i)=>{
-            imagenesGrandes[i].classList.remove('activa')
+            grupoImagenGrande[i].classList.remove('activa')
+            // console.log(grupoImagenGrande[i])
         })  
-        imagenesGrandes[i].classList.add('activa')
-        contenedorImagenGrande.style.display='block'
+        // console.log(grupoImagenGrande[i])
+        grupoImagenGrande[i].classList.add('activa')
+
+        contenedorImagenGrande.forEach((grupos,i)=>{
+            contenedorImagenGrande[i].style.display='none'
+            // console.log(contenedorImagenGrande[i])    
+        })
+
+        for (activa of grupoImagenGrande){
+            if (activa.classList[2]== 'activa'){
+                var orden = parseInt(activa.classList[1])
+                // console.log(orden)
+            }       
+        }
         
+        if (orden > 8 && orden <17){
+            contenedorImagenGrande[1].style.display='block'
+            // console.log(contenedorImagenGrande[1])
+        } else if (orden>16 && orden <25){
+            contenedorImagenGrande[2].style.display='block'
+        } else {
+            contenedorImagenGrande[0].style.display='block'
+        }   
       }) 
     })
 
 
 
-var imagenesGrandes = [
-    document.querySelector('.uno'),
-    document.querySelector('.dos'),
-    document.querySelector('.tres'),
-    document.querySelector('.cuatro'),
-    document.querySelector('.cinco'),
-    document.querySelector('.seis'),
-    document.querySelector('.siete'),
-    document.querySelector('.ocho')
-]
 
     // const atras = imagenesGrandes[imagenesGrandes.length - 1] 
 // function carruselGrande (contenedor){
     document.addEventListener('click',(e)=>{
         if (e.target.id == 'cerrar'){
-            contenedorImagenGrande.style.display='none'
+            contenedorImagenGrande.forEach((cerrarIMG,i)=>{
+                contenedorImagenGrande[i].style.display='none'
+            })
+            
         }
 
         for (imagen of grupoImagen){    
@@ -228,7 +284,9 @@ var imagenesGrandes = [
             tgt = e.target
 
             
-
+            for (clase of contenedorImagenGrande){
+                claseGrupo = clase.classList[1]
+            }
 
             if(e.target.classList[0] == 'boton-izquierda'){
                     // console.log(atras)
@@ -242,8 +300,21 @@ var imagenesGrandes = [
                         atrasado.classList.remove('activa');
                     }  
                     console.log(orden)
-                grupoImagenGrande[--orden].classList.add('activa');
-                grupoImagen[orden].classList.add('activa');    
+                if (contenedorImagenGrande[0].style.display == 'block'){
+                    grupoImagenGrande[--orden].classList.add('activa');
+                    grupoImagen[orden].classList.add('activa');
+                } else if (contenedorImagenGrande[1].style.display == 'block'){
+                    grupoImagenGrande[--orden + 8].classList.add('activa');
+                    grupoImagen[orden].classList.add('activa');
+                } else if (contenedorImagenGrande[2].style.display == 'block'){
+                    grupoImagenGrande[--orden + 16].classList.add('activa');
+                    grupoImagen[orden].classList.add('activa');
+                }
+                
+                
+                if (orden > 0 ){
+                   
+                }
                 } 
                 // orden = orden-1
 
@@ -261,9 +332,17 @@ var imagenesGrandes = [
                     for (atrasado of grupoImagenGrande){
                         atrasado.classList.remove('activa');
                     }  
-                    console.log(orden)
-                grupoImagenGrande[++orden].classList.add('activa');
-                grupoImagen[orden].classList.add('activa');    
+
+                if (contenedorImagenGrande[0].style.display == 'block'){
+                    grupoImagenGrande[++orden].classList.add('activa');
+                    grupoImagen[orden].classList.add('activa');
+                } else if (contenedorImagenGrande[1].style.display == 'block'){
+                    grupoImagenGrande[++orden + 8].classList.add('activa');
+                    grupoImagen[orden].classList.add('activa');
+                } else if (contenedorImagenGrande[2].style.display == 'block'){
+                    grupoImagenGrande[++orden + 16].classList.add('activa');
+                    grupoImagen[orden].classList.add('activa');
+                }
                 } 
             }
      
@@ -277,7 +356,10 @@ var imagenesGrandes = [
 
     window.addEventListener('scroll',()=>{
         mostrarScrollBottom()
-        contenedorImagenGrande.style.display='none'
+        contenedorImagenGrande.forEach((cerrarConScroll,i)=>{
+            contenedorImagenGrande[i].style.display='none'
+        })
+        
     })
 
   
