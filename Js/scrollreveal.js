@@ -1022,7 +1022,7 @@
 			 */
 			if (!revealed.body.length) {
 				var nextId = seq.members[visible.body[0]];
-				var nextElement = this.store.elements[nextId];
+				var nextElement = this.store.elements[nextId]; 
 
 				if (nextElement) {
 					cue.call(this, seq, visible.body[0], -1, pristine);
