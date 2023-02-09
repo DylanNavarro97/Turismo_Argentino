@@ -19,8 +19,7 @@ header {
   align-items: center;
   width: 100%;
   height: 85px;
-  padding: 5px 5%; 
-  position: -webkit-sticky;
+  padding: 5px 5%;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -117,6 +116,35 @@ header {
   padding: 25px;
   background-color: #F3EFE0;
   margin: 20px;
+}
+
+.destino-selector {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 1rem;
+}
+
+.grande-selector {
+  width: 200%;
+  display: flex;
+  margin: 1rem 2rem;
+}
+
+.imagenes-selector {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.imagenes-selector img {
+  width: calc(25% - 1rem);
+  margin: 0 20px;
 }
 
 @media (max-width: 904px) {
