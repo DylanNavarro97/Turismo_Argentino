@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Nunito:wght@400;800&family=Open+Sans:wght@300;700;800&family=Sen&family=Trocchi&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
 *{
 	box-sizing: border-box;
 	margin: 0;
@@ -101,7 +101,9 @@ header{
 .contenedor-art-mas{
 	display: flex;
 	background-image: url(../imagenes/Hoteles/jujuy.jpg);
+	background-size: 150%;
 	flex-wrap: wrap;
+	min-width: 360px;
 }
 
 .in-flex{
@@ -132,16 +134,25 @@ header{
 .destino-selector{
 	display: flex;
 	flex-wrap: wrap;
-	margin-top: 1rem;
+	margin-top: 2rem;
 	width: 100%;
 	overflow: hidden;
 	padding: 0 1rem;
+	position: relative;
+	// justify-content: center;
+}
+
+.destino-selector .titulo-mas{
+	margin: 0 auto;
 }
 
 .grande-selector{
 	width: 200%;
 	display: flex;
-	margin: 1rem 2rem;
+	margin: 1rem 0;
+	transition: all .4s ease;
+	// position: relative;
+	// overflow: hidden;
 }
 
 .imagenes-selector{
@@ -149,15 +160,162 @@ header{
 	flex-wrap: nowrap;
 	justify-content: space-around;
 	width: 100%;
-	object-fit: contain;
+	// position: relative;
+	// overflow: hidden;
+	// object-fit: contain;
 }
 
-.imagenes-selector img{
-	width: calc(100% / 4 - 1rem);
+// .imagenes-selector div{
+// 	// width: 200%;
+// }
+
+.imagenes-selector .imagen {
+	// height: 10rem;
+	width: calc(100vw / 4 - 2.5rem);
+	position: relative;
 	margin: 0 20px;
+	cursor: pointer;
+	background-color: #222222;
+	
+}
+
+.imagenes-selector .imagen img{
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	transition: all .2s ease;
+}
+
+.imagenes-selector .imagen p:hover{
+	opacity: 0.4;
 }
 
 
+.imagenes-selector .imagen .texto p{
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	text-shadow: 1px 1px 2px rgb(0,0,0);
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+#btnDerecha{
+	display: none;
+}
+
+#btnIzquierda{
+	display: none;
+}
+
+.boton-derecha{
+	position: absolute;
+	right: 0;
+	top: 50%;
+	padding: .5rem;
+	color: black;
+	cursor: pointer;
+	z-index: 3	;
+}
+
+
+.boton-izquierda{
+	position: absolute;
+	left: 0;
+	padding: .5rem;
+	top: 50%;
+	color: black;
+	cursor: pointer;
+	z-index: 2;
+}
+
+// banner
+.banner{
+	background-image: url(../imagenes/Banners/mendoza.png);
+	background-size: cover;
+	height: 20vh;
+	min-width: 360px;
+	margin: 2rem 0 0 0;
+	position: relative;
+}
+
+.banner p{
+	position: absolute;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	font-size: 4rem;
+	color: white;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+// Articulo desplegable
+
+.articulo-desplegable{
+	display: block;
+}
+
+.articulo-desplegable .festividades {
+	display: none;
+}
+.art-desplegable .gastronomia{
+	display: none;
+}
+.art-desplegable .actividades{
+	display: none;
+}
+
+.art-desplegable{
+	display: flex;
+	flex-wrap: wrap;
+	min-width: 320px;
+	margin: 1rem;
+}
+
+.seleccion{
+	display: flex;
+	background-color: #434242;
+	color: #F3EFE0;
+	// width: 100%;
+	align-items: center;
+	height: 2rem;
+	position: sticky;
+	top: 85px;
+}
+
+.seleccion .lista{
+	display: flex;
+	min-width: 360px;
+	width: 100%;
+	justify-content: space-around;
+}
+
+.seleccion .seleccionado{
+	list-style: none;
+	justify-content: space-around;
+}
+
+.seleccion .seleccionado:hover{
+	color: #BFEAF5;
+}
+
+
+
+
+@media (max-width:1401px){
+	.boton-izquierda{
+		transform: translate(20%, -20%);
+	}
+
+	.boton-derecha{
+		transform: translate(5%, -20%);
+	}
+}
 
 @media (max-width: 904px) {
 	.header .nav-links li {
@@ -239,4 +397,24 @@ header{
 #check:checked ~ nav ul{
 	left: 0 ;
 }
+
+
+// .art-desplegable{
+// 	min-width: 315px;
+// 	padding: 0;
+// }
+
+// .art-desplegable .text-art{
+// 	font-size: 18px;
+// }
+
+// .art-desplegable:first-child{
+// 	margin: 25px;
+// 	padding: 0;
+// }
+
+// .art-desplegable div{
+// 	margin: 25px;
+// 	padding: 0;
+// }
 }
