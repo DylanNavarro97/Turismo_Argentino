@@ -23,7 +23,7 @@ header {
   padding: 5px 5%;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 10;
   background-color: #22A39F;
   background-image: url(../imagenes/opa.jpg);
   background-blend-mode: soft-light;
@@ -126,13 +126,17 @@ header {
   flex-wrap: wrap;
   margin-top: 2rem;
   width: 100%;
+  min-width: 360px;
   overflow: hidden;
   padding: 0 1rem;
   position: relative;
+  background-color: #222222;
+  color: #F3EFE0;
+  margin-bottom: 2rem;
 }
 
 .destino-selector .titulo-mas {
-  margin: 0 auto;
+  margin: 0.5rem auto;
 }
 
 .grande-selector {
@@ -193,9 +197,9 @@ header {
   right: 0;
   top: 50%;
   padding: 0.5rem;
-  color: black;
   cursor: pointer;
   z-index: 3;
+  color: #F3EFE0;
 }
 
 .boton-izquierda {
@@ -203,18 +207,16 @@ header {
   left: 0;
   padding: 0.5rem;
   top: 50%;
-  color: black;
+  color: #F3EFE0;
   cursor: pointer;
   z-index: 2;
 }
 
 .banner {
-  background-image: url(../imagenes/Banners/mendoza.png);
-  background-size: cover;
   height: 20vh;
   min-width: 360px;
-  margin: 2rem 0 0 0;
   position: relative;
+  overflow: hidden;
 }
 
 .banner p {
@@ -226,22 +228,19 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-shadow: 1px 1px 1px #222222;
+}
+
+.banner img {
+  width: 100%;
 }
 
 .articulo-desplegable {
+  display: none;
+}
+
+.art-activo {
   display: block;
-}
-
-.articulo-desplegable .festividades {
-  display: none;
-}
-
-.art-desplegable .gastronomia {
-  display: none;
-}
-
-.art-desplegable .actividades {
-  display: none;
 }
 
 .art-desplegable {
@@ -251,14 +250,48 @@ header {
   margin: 1rem;
 }
 
+.contenedor-boot {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-width: 360px;
+  width: 100%;
+  z-index: 10;
+  padding: 1rem;
+  background-color: #434242;
+}
+
+.contenedor-boot:first-child {
+  display: flex;
+  padding: 1rem;
+  flex: 2;
+  min-width: 360px;
+}
+
+.contenedor-boot .flex {
+  display: flex;
+  min-width: 320px;
+  padding: 1rem;
+  flex: 1;
+  color: #F3EFE0;
+}
+
 .seleccion {
   display: flex;
   background-color: #434242;
   color: #F3EFE0;
   align-items: center;
+  justify-content: center;
   height: 2rem;
   position: sticky;
   top: 85px;
+  min-width: 360px;
+}
+
+.seleccion ul {
+  margin: 0;
+  padding: 0;
 }
 
 .seleccion .lista {
@@ -275,6 +308,15 @@ header {
 
 .seleccion .seleccionado:hover {
   color: #BFEAF5;
+}
+
+.art-desplegables {
+  padding: 1rem;
+  display: none;
+}
+
+.info-activa {
+  display: block;
 }
 
 @media (max-width: 1401px) {

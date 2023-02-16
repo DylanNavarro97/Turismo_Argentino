@@ -85,7 +85,7 @@ function mostrarScrollAArticulo(){
         let alturaAnimado = animado[i].offsetTop
         let alturaResultado = alturaAnimado - 220
         // console.log(alturaResultado)
-        // console.log(animado[i])
+        // console.log(animado.length)
         window.scroll({
             top:alturaResultado,
             left: 0,
